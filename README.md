@@ -54,12 +54,12 @@ The design integrates VGA timing generation, scrolling logic, steering control, 
 ---
 
 ## 🌀 Curved Road Geometry
-Curvature is implemented using a sine-wave approximation:
-
--curve_index = y_scroll[8:3]
--sine_value  = sin(2π × curve_index / 64) × 80
--road_center = 320 + sine_value + lateral_offset
--road_width  = BASE_WIDTH + (y / 8)
+- Curve Index: **y_scroll[8:3]** (maps vertical position to curve segment)
+- Sine Function: **sin(2π × curve_index / 64)** for smooth curvature
+- Curve Amplitude: **±80 pixels** (maximum lateral shift)
+- Road Center Calculation: **320 + sine_value + lateral_offset**
+- Perspective Scaling: **road_width = BASE_WIDTH + (y / 8)**
+- Effect: **Smooth oscillating curved road with depth perspective**
 
 ---
 
