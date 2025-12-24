@@ -118,12 +118,38 @@ The design integrates VGA timing generation, scrolling logic, steering control, 
 
 ---
 
-## 🌀 Curved Road Geometry
-Curvature is implemented using a sine-wave approximation:
+## 🎨 Rendering & Visual Effects
+Each pixel is rendered based on its position and animation state.
 
-```text
-curve_index = y_scroll[8:3]
-sine_value = sin(2π × curve_index / 64) × 80
-road_center = 320 + sine_value + lateral_offset
-road_width  = BASE_WIDTH + (y / 8)
+### Visual Elements
+- Metallic vehicle body and glowing windshield  
+- Animated thrusters with intensity modulation  
+- Neon center line and pulsing rumble strips  
+- Gradient road shading  
+- Animated starfield and galaxy background  
+
+---
+
+## 🎮 User Controls
+- **Left Button:** Road shifts right (vehicle moves left)  
+- **Right Button:** Road shifts left (vehicle moves right)  
+- **No Input:** Automatic centering behavior  
+
+---
+
+## 🛠️ Tools & Hardware
+- **Language:** Verilog HDL  
+- **FPGA Board:** Basys 3 (Artix-7)  
+- **Toolchain:** Xilinx Vivado  
+- **Display:** VGA Monitor (640 × 480)  
+
+---
+
+## ▶️ How to Run
+1. Open the project in **Xilinx Vivado**
+2. Add all RTL modules, testbenches, and the **XDC constraint file**
+3. Run simulation to verify functionality
+4. Synthesize and generate the bitstream
+5. Program the **Basys 3 FPGA** and connect a VGA display
+
 
